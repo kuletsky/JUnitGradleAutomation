@@ -1,0 +1,28 @@
+chapterName	linkText	linkUrl	headerName	isFrame
+2	Chapter 3. WebDriver Fundamentals	Web form	https://bonigarcia.dev/selenium-webdriver-java/web-form.html	Web form	FALSE
+3	Chapter 3. WebDriver Fundamentals	Navigation	https://bonigarcia.dev/selenium-webdriver-java/navigation1.html	Navigation	FALSE
+4	Chapter 3. WebDriver Fundamentals	Dropdown menu	https://bonigarcia.dev/selenium-webdriver-java/dropdown-menu.html	Dropdown menu	FALSE
+5	Chapter 3. WebDriver Fundamentals	Mouse over	https://bonigarcia.dev/selenium-webdriver-java/mouse-over.html	Mouse over	FALSE
+6	Chapter 3. WebDriver Fundamentals	Drag and drop	https://bonigarcia.dev/selenium-webdriver-java/drag-and-drop.html	Drag and drop	FALSE
+7	Chapter 3. WebDriver Fundamentals	Draw in canvas	https://bonigarcia.dev/selenium-webdriver-java/draw-in-canvas.html	Drawing in canvas	FALSE
+8	Chapter 3. WebDriver Fundamentals	Loading images	https://bonigarcia.dev/selenium-webdriver-java/loading-images.html	Loading images	FALSE
+9	Chapter 3. WebDriver Fundamentals	Slow calculator	https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html	Slow calculator	FALSE
+10	Chapter 4. Browser-Agnostic Features	Long page	https://bonigarcia.dev/selenium-webdriver-java/long-page.html	long page	FALSE
+11	Chapter 4. Browser-Agnostic Features	Infinite scroll	https://bonigarcia.dev/selenium-webdriver-java/infinite-scroll.html	Infinite scroll	FALSE
+12	Chapter 4. Browser-Agnostic Features	Shadow DOM	https://bonigarcia.dev/selenium-webdriver-java/shadow-dom.html	Shadow DOM	FALSE
+13	Chapter 4. Browser-Agnostic Features	Cookies	https://bonigarcia.dev/selenium-webdriver-java/cookies.html	Cookies	FALSE
+14	Chapter 4. Browser-Agnostic Features	Frames	https://bonigarcia.dev/selenium-webdriver-java/frames.html	Frames	TRUE
+15	Chapter 4. Browser-Agnostic Features	IFrames	https://bonigarcia.dev/selenium-webdriver-java/iframes.html	IFrame	FALSE
+16	Chapter 4. Browser-Agnostic Features	Dialog boxes	https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html	Dialog boxes	FALSE
+17	Chapter 4. Browser-Agnostic Features	Web storage	https://bonigarcia.dev/selenium-webdriver-java/web-storage.html	Web storage	FALSE
+18	Chapter 5. Browser-Specific Manipulation	Geolocation	https://bonigarcia.dev/selenium-webdriver-java/geolocation.html	Geolocation	FALSE
+19	Chapter 5. Browser-Specific Manipulation	Notifications	https://bonigarcia.dev/selenium-webdriver-java/notifications.html	Notifications	FALSE
+20	Chapter 5. Browser-Specific Manipulation	Get user media	https://bonigarcia.dev/selenium-webdriver-java/get-user-media.html	Get user media	FALSE
+21	Chapter 5. Browser-Specific Manipulation	Multilanguage	https://bonigarcia.dev/selenium-webdriver-java/multilanguage.html	Multilanguage	FALSE
+22	Chapter 5. Browser-Specific Manipulation	Console logs	https://bonigarcia.dev/selenium-webdriver-java/console-logs.html	Console logs	FALSE
+23	Chapter 7. The Page Object Model (POM)	Login form	https://bonigarcia.dev/selenium-webdriver-java/login-form.html	Login form	FALSE
+24	Chapter 7. The Page Object Model (POM)	Slow login	https://bonigarcia.dev/selenium-webdriver-java/login-slow.html	Slow login	FALSE
+25	Chapter 8. Testing Framework Specifics	Random calculator	https://bonigarcia.dev/selenium-webdriver-java/random-calculator.html	Random calculator	FALSE
+26	Chapter 9. Third-Party Integrations	Download files	https://bonigarcia.dev/selenium-webdriver-java/download.html	Download files	FALSE
+27	Chapter 9. Third-Party Integrations	A/B Testing	https://bonigarcia.dev/selenium-webdriver-java/ab-testing.html	A/B Testing	FALSE
+28	Chapter 9. Third-Party Integrations	Data types	https://bonigarcia.dev/selenium-webdriver-java/data-types.html	Data types	FALSE
