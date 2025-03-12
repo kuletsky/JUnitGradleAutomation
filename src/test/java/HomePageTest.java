@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,136 +10,72 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-class HomePageTest {
-    WebDriver chromeDriver;
+public class HomePageTest {
+    WebDriver driver;
     private static final String BASE_URL = "https://bonigarcia.dev/selenium-webdriver-java/";
 
     @BeforeEach
     void setUp() {
-        chromeDriver = new ChromeDriver();
-        chromeDriver.manage().window().maximize();
-        chromeDriver.get(BASE_URL);
+        driver = new ChromeDriver();
+        driver.get(BASE_URL);
+        driver.manage().window().maximize();
     }
 
     @AfterEach
     void tearDown() {
-        chromeDriver.quit();
+        driver.quit();
     }
 
-    @Test
-    void openHomePage() {
 
-        String titleWebPage = chromeDriver.getTitle();
-        assertEquals("Hands-On Selenium WebDriver with Java", titleWebPage);
+    @ParameterizedTest
+    @DisplayName("Home page tests")
+    @CsvSource({
+            "Chapter 3. WebDriver Fundamentals, web-form.html, Web form",
+            "Chapter 3. WebDriver Fundamentals, navigation1.html, Navigation example",
+            "Chapter 3. WebDriver Fundamentals, dropdown-menu.html, Dropdown menu",
+            "Chapter 3. WebDriver Fundamentals, mouse-over.html, Mouse over",
+            "Chapter 3. WebDriver Fundamentals, drag-and-drop.html, Drag and drop",
+            "Chapter 3. WebDriver Fundamentals, loading-images.html, Loading images",
+            "Chapter 3. WebDriver Fundamentals, slow-calculator.html, Slow calculator",
+            "Chapter 4. Browser-Agnostic Features, long-page.html, This is a long page",
+            "Chapter 4. Browser-Agnostic Features, infinite-scroll.html, Infinite scroll",
+            "Chapter 4. Browser-Agnostic Features, shadow-dom.html, Shadow DOM",
+            "Chapter 4. Browser-Agnostic Features, iframes.html, IFrame",
+            "Chapter 4. Browser-Agnostic Features, cookies.html, Cookies",
+            "Chapter 4. Browser-Agnostic Features, dialog-boxes.html, Dialog boxes",
+            "Chapter 4. Browser-Agnostic Features, web-storage.html, Web storage",
+            "Chapter 5. Browser-Specific Manipulation, geolocation.html, Geolocation",
+            "Chapter 5. Browser-Specific Manipulation, notifications.html, Notifications",
+            "Chapter 5. Browser-Specific Manipulation, get-user-media.html, Get user media",
+            "Chapter 5. Browser-Specific Manipulation, multilanguage.html, Multilanguage page",
+            "Chapter 5. Browser-Specific Manipulation, console-logs.html, Console logs",
+            "Chapter 7. The Page Object Model (POM), login-form.html, Login form",
+            "Chapter 7. The Page Object Model (POM), login-slow.html, Slow login form",
+            "Chapter 8. Testing Framework Specifics, random-calculator.html, Random calculator",
+            "Chapter 9. Third-Party Integrations, download.html, Download files",
+            "Chapter 9. Third-Party Integrations, ab-testing.html, A/B Testing",
+            "Chapter 9. Third-Party Integrations, data-types.html, Data types"
+    })
+    void homePageTests(String chapterName, String path, String title) {
+        driver.findElement(By.xpath("//h5[text() = '" + chapterName + "']/../a[@href = '" + path + "']")).click();
+        String actualUrl = driver.getCurrentUrl();
+        String actualTitle = driver.findElement(By.className("display-6")).getText();
+        assertEquals(BASE_URL + path, actualUrl, "The URLs don't match");
+        assertEquals(title, actualTitle, "The titles don't match");
+    }
 
-        // CHAPTER 3. Web form verification
-        WebElement titleWebForm = chromeDriver.findElement(By.xpath("//a[text() = \"Web form\"]"));
-        titleWebForm.click();
-
-        String webFormURL = "web-form.html";
-        String curentURL = chromeDriver.getCurrentUrl();
-        assertEquals(BASE_URL + webFormURL, curentURL);
-
-        String title = chromeDriver.findElement(By.cssSelector(".display-6")).getText();
-        assertEquals("Web form", title);
-
-        chromeDriver.navigate().back();
-
-
-        // CHAPTER 3. NAVIGATION VERIFICATION
-        chromeDriver.findElement(By.xpath("//a[@href='navigation1.html']")).click();
-
-        String urlNavigation = chromeDriver.getCurrentUrl();
-        assertEquals(BASE_URL + "navigation1.html", urlNavigation);
-
-        String titleNavigation = chromeDriver.findElement(By.cssSelector(".display-6")).getText();
-        assertEquals("Navigation example", titleNavigation);
-
-        chromeDriver.navigate().back();
-
-
-        // CHAPTER 3. DROPDOWN MENU
-        chromeDriver.findElement(By.xpath("//a[@href='dropdown-menu.html']")).click();
-
-        String urlDropdown = chromeDriver.getCurrentUrl();
-        assertEquals(BASE_URL + "dropdown-menu.html", urlDropdown);
-
-        String titleDropdown = chromeDriver.findElement(By.cssSelector(".display-6")).getText();
-        assertEquals("Dropdown menu", titleDropdown);
-
-        chromeDriver.navigate().back();
-
-
-        //  CHAPTER 3. MOUSE OVER
-        chromeDriver.findElement(By.xpath("//a[@href='mouse-over.html']")).click();
-
-        String urlMouseOver = chromeDriver.getCurrentUrl();
-        assertEquals(BASE_URL + "mouse-over.html", urlMouseOver);
-
-        String titleMouseOver = chromeDriver.findElement(By.cssSelector(".display-6")).getText();
-        assertEquals("Mouse over", titleMouseOver);
-
-        chromeDriver.navigate().back();
-
-
-        //  CHAPTER 3. DRAG AND DROP
-        chromeDriver.findElement(By.xpath("//a[@href='drag-and-drop.html']")).click();
-
-        String urlDragAndDrop = chromeDriver.getCurrentUrl();
-        assertEquals(BASE_URL + "drag-and-drop.html", urlDragAndDrop);
-
-        String titleDragAndDrop = chromeDriver.findElement(By.cssSelector(".display-6")).getText();
-        assertEquals("Drag and drop", titleDragAndDrop);
-
-        chromeDriver.navigate().back();
-
-
-        //  CHAPTER 3. DRAW IN CANVAS
-        chromeDriver.findElement(By.xpath("//a[@href='draw-in-canvas.html']")).click();
-
-        String urlDrawInCanvas = chromeDriver.getCurrentUrl();
-        assertEquals(BASE_URL + "draw-in-canvas.html", urlDrawInCanvas);
-
-        String titleDrawInCanvas = chromeDriver.findElement(By.cssSelector(".display-6")).getText();
-        assertEquals("Drawing in canvas", titleDrawInCanvas);
-
-        chromeDriver.navigate().back();
-
-
-        //  CHAPTER 3. LOADING IMAGES
-        chromeDriver.findElement(By.xpath("//a[@href='loading-images.html']")).click();
-
-        String urlLoadingImages = chromeDriver.getCurrentUrl();
-        assertEquals(BASE_URL + "loading-images.html", urlLoadingImages);
-
-        String titleLoadingImages = chromeDriver.findElement(By.cssSelector(".display-6")).getText();
-        assertEquals("Loading images", titleLoadingImages);
-
-        chromeDriver.navigate().back();
-
-
-        //  CHAPTER 3. SLOW CALCULATOR
-        chromeDriver.findElement(By.xpath("//a[@href='slow-calculator.html']")).click();
-
-        String urlSlowCalculator = chromeDriver.getCurrentUrl();
-        assertEquals(BASE_URL + "slow-calculator.html", urlSlowCalculator);
-
-        String titleSlowCalculator = chromeDriver.findElement(By.cssSelector(".display-6")).getText();
-        assertEquals("Slow calculator", titleSlowCalculator);
-
-        chromeDriver.navigate().back();
-
-
-
-
-
-
-
-
-
-
-
-
+    @ParameterizedTest
+    @DisplayName("Проверка фреймов")
+    @CsvSource({
+            "Chapter 4. Browser-Agnostic Features, frames.html, Frames"
+    })
+    void frameTests(String chapterName, String path, String title) {
+        driver.findElement(By.xpath("//h5[text() = '" + chapterName + "']/../a[@href = '" + path + "']")).click();
+        String actualUrl = driver.getCurrentUrl();
+        WebElement frame = driver.findElement(By.cssSelector("frame[name='frame-header']"));
+        driver.switchTo().frame(frame);
+        String actualTitle = driver.findElement(By.className("display-6")).getText();
+        assertEquals(BASE_URL + path, actualUrl, "The URLs don't match");
+        assertEquals(title, actualTitle, "The titles don't match");
     }
 }
