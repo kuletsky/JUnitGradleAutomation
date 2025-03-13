@@ -1,12 +1,15 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -65,7 +68,7 @@ public class HomePageTest {
     }
 
     @ParameterizedTest
-    @DisplayName("Проверка фреймов")
+    @DisplayName("Test frameWorks")
     @CsvSource({
             "Chapter 4. Browser-Agnostic Features, frames.html, Frames"
     })
@@ -77,5 +80,23 @@ public class HomePageTest {
         String actualTitle = driver.findElement(By.className("display-6")).getText();
         assertEquals(BASE_URL + path, actualUrl, "The URLs don't match");
         assertEquals(title, actualTitle, "The titles don't match");
+    }
+
+    @Test
+    @DisplayName("Open all links")
+    void openAllLinksTests() {
+        List<WebElement> chapters = driver.findElements(By.cssSelector(".card h5"));
+        for (WebElement chapter : chapters) {
+            System.out.println(chapter.getText());
+        }
+        assertEquals(6, chapters.size());
+
+        List<WebElement> links = driver.findElements(By.cssSelector(".card a"));
+        for (WebElement link : links) {
+            System.out.println(link.getText());
+            link.click();
+            driver.navigate().back();
+        }
+        assertEquals(27, links.size());
     }
 }
