@@ -8,10 +8,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HomePageTest {
     WebDriver driver;
@@ -99,4 +104,14 @@ public class HomePageTest {
         }
         assertEquals(27, links.size());
     }
+
+    @Test
+    void testLoadingImageExplicitWait() {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        String landscape = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("landscape"))).getDomAttribute("src");
+        assertTrue(landscape.contains("landscape"), "The image source does not contain 'landscape'");
+    }
+
 }
