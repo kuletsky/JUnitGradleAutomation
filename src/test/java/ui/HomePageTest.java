@@ -23,13 +23,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class HomePageTest {
     WebDriver driver;
     TestConfig config = new TestConfig();
+
     String baseUrl = config.getBaseUrl();
 
     @BeforeEach
     void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-//        driver.get(baseUrl);
+        driver.get(baseUrl);
     }
 
     @AfterEach
