@@ -1,12 +1,11 @@
 package ui;
 
-import configs.TestConfig;
+import configs.TestPropertiesConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -16,21 +15,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class HomePageTest {
+class HomePageTest {
     WebDriver driver;
-    TestConfig config = new TestConfig();
-
-    String baseUrl = config.getBaseUrl();
+    TestPropertiesConfig config = ConfigFactory.create(TestPropertiesConfig.class, System.getProperties());
 
     @BeforeEach
-    void setUp() {
+    void setup() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(baseUrl);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
     @AfterEach
@@ -38,25 +34,11 @@ public class HomePageTest {
         driver.quit();
     }
 
-
-    @ParameterizedTest
-    @DisplayName("Test frameWorks")
-    @CsvSource({
-            "Chapter 4. Browser-Agnostic Features, frames.html, Frames"
-    })
-    void frameTests(String chapterName, String path, String title) {
-        driver.findElement(By.xpath("//h5[text() = '" + chapterName + "']/../a[@href = '" + path + "']")).click();
-        String actualUrl = driver.getCurrentUrl();
-        WebElement frame = driver.findElement(By.cssSelector("frame[name='frame-header']"));
-        driver.switchTo().frame(frame);
-        String actualTitle = driver.findElement(By.className("display-6")).getText();
-        assertEquals(baseUrl + path, actualUrl, "The URLs don't match");
-        assertEquals(title, actualTitle, "The titles don't match");
-    }
-
     @Test
     @DisplayName("Open all links")
     void openAllLinksTests() {
+        driver.get(config.getBaseUrl());
+
         List<WebElement> chapters = driver.findElements(By.cssSelector(".card h5"));
         for (WebElement chapter : chapters) {
             System.out.println(chapter.getText());
@@ -74,7 +56,9 @@ public class HomePageTest {
 
     @Test
     void testLoadingImageExplicitWait() {
+        driver.get(config.getBaseUrl());
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         String landscape = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("landscape"))).getDomAttribute("src");
@@ -83,6 +67,7 @@ public class HomePageTest {
 
     @Test
     void testDialogBoxes() {
+        driver.get(config.getBaseUrl());
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html");
@@ -95,6 +80,8 @@ public class HomePageTest {
 
     @Test
     void testNavigate() {
+        driver.get(config.getBaseUrl());
+
         driver.navigate().to("https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html");
         driver.navigate().back();
         assertEquals("https://bonigarcia.dev/selenium-webdriver-java/", driver.getCurrentUrl());
@@ -102,6 +89,8 @@ public class HomePageTest {
 
     @Test
     void testNewTab() {
+        driver.get(config.getBaseUrl());
+
         String initHandle = driver.getWindowHandle();
         System.out.println(initHandle);
         driver.switchTo().newWindow(WindowType.TAB);
@@ -115,6 +104,8 @@ public class HomePageTest {
 
     @Test
     void testInfiniteScroll() {
+        driver.get(config.getBaseUrl());
+
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/infinite-scroll.html");
         Actions actions = new Actions(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));

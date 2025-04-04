@@ -3,7 +3,6 @@ package configs;
 import java.io.IOException;
 import java.util.Properties;
 
-import static constants.Constants.BASE_URL;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TestConfig {
