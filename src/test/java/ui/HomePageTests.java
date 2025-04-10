@@ -1,13 +1,8 @@
 package ui;
 
-import configs.TestPropertiesConfig;
-import org.aeonbits.owner.ConfigFactory;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -59,7 +54,7 @@ class HomePageTests extends BaseTest {
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html");
         driver.findElement(By.id("my-alert")).click();
         wait.until(ExpectedConditions.alertIsPresent());
-        Alert alert =driver.switchTo().alert();
+        Alert alert = driver.switchTo().alert();
         assertEquals("Hello world!", alert.getText());
         alert.accept();
     }
@@ -96,7 +91,7 @@ class HomePageTests extends BaseTest {
         Actions actions = new Actions(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        actions.scrollByAmount(0,900000000).perform();
+        actions.scrollByAmount(0, 900000000).perform();
         By pLocator = By.tagName("p");
         List<WebElement> paragraphs = wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(pLocator, 0));
         int initParagraphsNumber = paragraphs.size();
