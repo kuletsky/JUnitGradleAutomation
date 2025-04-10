@@ -18,21 +18,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class HomePageTest {
-    WebDriver driver;
-    TestPropertiesConfig config = ConfigFactory.create(TestPropertiesConfig.class, System.getProperties());
-
-    @BeforeEach
-    void setup() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-    }
-
-    @AfterEach
-    void tearDown() {
-        driver.quit();
-    }
+class HomePageTests extends BaseTest {
 
     @Test
     @DisplayName("Open all links")
