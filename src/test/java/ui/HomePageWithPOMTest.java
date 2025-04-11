@@ -32,26 +32,22 @@ class HomePageWithPOMTest extends BaseTestForPOM {
         assertEquals("Hands-On Selenium WebDriver with Java", actualTitle.getText());
     }
 
-//    @Test
-//    @DisplayName("Open all links")
-//    void openAllLinksTests() {
-//        driver.get(config.getBaseUrl());
-//
-//        List<WebElement> chapters = driver.findElements(By.cssSelector(".card h5"));
-//        for (WebElement chapter : chapters) {
-//            System.out.println(chapter.getText());
-//        }
-//        assertEquals(6, chapters.size());
-//
-//        List<WebElement> links = driver.findElements(By.cssSelector(".card a"));
-//        for (WebElement link : links) {
-//            System.out.println(link.getText());
-//            link.click();
-//            driver.navigate().back();
-//        }
-//        assertEquals(27, links.size());
-//    }
-//
+    @Test
+    @DisplayName("Open all links")
+    void testOpenAllLinks() {
+        homePage = new HomePage(driver);
+
+        assertEquals(6, homePage.getListOfChapters().size());
+        assertEquals(27, homePage.getListOfLinks().size());
+    }
+
+    @Test
+    @DisplayName("Click through all links on the homepage")
+    void testClickAllLinks() {
+        homePage = new HomePage(driver);
+
+        homePage.clickAllLinks(); // separate test for action
+    }
 //    @Test
 //    void testLoadingImageExplicitWait() {
 //        driver.get(config.getBaseUrl());
