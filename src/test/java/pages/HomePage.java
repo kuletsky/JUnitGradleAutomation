@@ -6,6 +6,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import ui.DialogBoxesTests;
 
 import java.util.List;
 
@@ -43,6 +44,18 @@ public class HomePage extends BasePage {
     public NavigationPage openNavigationPage() {
         driver.findElement(By.linkText("Navigation")).click();
         return new NavigationPage(driver);
+    }
+
+    @Step("Open Navigation page")
+    public LoadingImagesPage openLoadingImagesPage() {
+        driver.findElement(By.linkText("Loading images")).click();
+        return new LoadingImagesPage(driver);
+    }
+
+    @Step("Open Dialog Boxes page")
+    public DialogBoxesPage openDialogBoxesPage() {
+        driver.findElement(By.linkText("Dialog boxes")).click();
+        return new DialogBoxesPage(driver);
     }
 
     @Step("Get a List of chapters on the Main Page")

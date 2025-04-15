@@ -4,23 +4,14 @@ import io.qameta.allure.Feature;
 import pages.HomePage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Feature("POM")
-class HomePageWithPOMTest extends BaseTestForPOM {
+class HomePageTest extends BaseTest {
     HomePage homePage;
 
     @Test
@@ -68,7 +59,7 @@ class HomePageWithPOMTest extends BaseTestForPOM {
 //        driver.findElement(By.id("my-alert")).click();
 //        wait.until(ExpectedConditions.alertIsPresent());
 //        Alert alert = driver.switchTo().alert();
-//        assertEquals("Hello world!", alert.getText());
+//        assertEquals("Hello world!", alert .getText());
 //        alert.accept();
 //    }
 //

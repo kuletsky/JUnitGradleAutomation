@@ -11,7 +11,7 @@ public class NavigationPage extends BasePage {
     }
 
     @Step("Get subpage url")
-    public String getFormUrl() {
+    public String getNavigationUrl() {
         return NAVIGATION_URL;
     }
 }
