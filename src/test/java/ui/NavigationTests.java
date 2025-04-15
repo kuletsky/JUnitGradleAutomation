@@ -7,11 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import pages.HomePage;
 import pages.NavigationPage;
-import pages.WebFormPage;
 
 
 @Feature("POM")
-public class NavigationTestsForPOM extends BaseTestForPOM {
+public class NavigationTests extends BaseTest {
     SoftAssertions softly = new SoftAssertions();
 
     @Test
@@ -21,11 +20,12 @@ public class NavigationTestsForPOM extends BaseTestForPOM {
 
         NavigationPage navigationPage = homePage.openNavigationPage();
         String currentUrl = navigationPage.getCurrentUrl();
-        WebElement title = navigationPage.getTitle();
-        String webFormUrl = navigationPage.getFormUrl();
 
-        softly.assertThat(title.getText()).isEqualTo("Navigation example");
-        softly.assertThat(currentUrl).isEqualTo(config.getBaseUrl() + webFormUrl);
+        WebElement navigationTitle = navigationPage.getTitle();
+        String navigationUrl = navigationPage.getNavigationUrl();
+
+        softly.assertThat(navigationTitle.getText()).isEqualTo("Navigation example");
+        softly.assertThat(currentUrl).isEqualTo(config.getBaseUrl() + navigationUrl);
 
         softly.assertAll();
     }
