@@ -36,6 +36,7 @@ public class NavigationTests extends BaseTest {
     void testNavigate() {
         HomePage homePage = new HomePage(driver);
         NavigationPage navigationPage = homePage.openNavigationPage();
+
         navigationPage.navigateToDB();
         navigationPage.navigateBack();
 
