@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,7 @@ public class LoadingImagesPage extends BasePage {
         super(driver);
     }
 
+    @Step("Wait the Landscape image")
     public String getLandscape() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         String landscape;

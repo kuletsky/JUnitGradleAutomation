@@ -1,6 +1,7 @@
 package ui;
 
 import io.qameta.allure.Feature;
+import org.junit.jupiter.api.BeforeEach;
 import pages.HomePage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,9 +15,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class HomePageTest extends BaseTest {
     HomePage homePage;
 
+    @BeforeEach
+    void setupPage() {
+        homePage = new HomePage(driver);
+    }
+
     @Test
     void testOpenHomePage() {
-        homePage = new HomePage(driver);
 
         WebElement actualTitle = homePage.getTitle();
 
@@ -26,7 +31,7 @@ class HomePageTest extends BaseTest {
     @Test
     @DisplayName("Open all links")
     void testOpenAllLinks() {
-        homePage = new HomePage(driver);
+//        homePage = new HomePage(driver);
 
         assertEquals(6, homePage.getListOfChapters().size());
         assertEquals(27, homePage.getListOfLinks().size());
@@ -35,7 +40,7 @@ class HomePageTest extends BaseTest {
     @Test
     @DisplayName("Click through all links on the homepage")
     void testClickAllLinks() {
-        homePage = new HomePage(driver);
+//        homePage = new HomePage(driver);
 
         homePage.clickAllLinks(); // separate test for action
     }

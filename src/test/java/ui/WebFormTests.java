@@ -2,6 +2,7 @@ package ui;
 
 import configs.TestPropertiesConfig;
 import io.qameta.allure.Feature;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import pages.HomePage;
@@ -13,12 +14,19 @@ import org.assertj.core.api.SoftAssertions;
 
 @Feature("POM")
 public class WebFormTests extends BaseTest {
-    SoftAssertions softly = new SoftAssertions();
+    HomePage homePage;
+    SoftAssertions softly;
+    TestPropertiesConfig config;
+
+    @BeforeEach
+    void setupPage() {
+        homePage = new HomePage(driver);
+        softly = new SoftAssertions();
+        config = homePage.config;
+    }
 
     @Test
     void testOpenWebForm() {
-        HomePage homePage = new HomePage(driver);
-        TestPropertiesConfig config = homePage.config;
         WebFormPage webFormPage = homePage.openWebFormPage();
 
         String currentUrl = webFormPage.getCurrentUrl();
@@ -33,8 +41,6 @@ public class WebFormTests extends BaseTest {
 
     @Test
     void testSubmitForm() {
-        HomePage homePage = new HomePage(driver);
-        TestPropertiesConfig config = homePage.config;
         WebFormPage webFormPage = homePage.openWebFormPage();
 
         webFormPage.submitForm();
