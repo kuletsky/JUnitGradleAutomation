@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import pages.HomePage;
 import pages.NavigationPage;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 @Feature("POM")
 public class NavigationTests extends BaseTest {
@@ -28,5 +30,16 @@ public class NavigationTests extends BaseTest {
         softly.assertThat(currentUrl).isEqualTo(config.getBaseUrl() + navigationUrl);
 
         softly.assertAll();
+    }
+
+    @Test
+    void testNavigate() {
+        HomePage homePage = new HomePage(driver);
+        NavigationPage navigationPage = homePage.openNavigationPage();
+
+        navigationPage.navigateToDB();
+        navigationPage.navigateBack();
+
+        assertEquals("https://bonigarcia.dev/selenium-webdriver-java/navigation1.html", navigationPage.getCurrentUrl());
     }
 }
