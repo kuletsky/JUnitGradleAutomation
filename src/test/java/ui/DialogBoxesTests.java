@@ -2,6 +2,7 @@ package ui;
 
 import configs.TestPropertiesConfig;
 import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import pages.DialogBoxesPage;
@@ -9,12 +10,19 @@ import pages.HomePage;
 import pages.WebFormPage;
 
 public class DialogBoxesTests extends BaseTest {
-    SoftAssertions softly = new SoftAssertions();
+    HomePage homePage;
+    SoftAssertions softly;
+    TestPropertiesConfig config;
+
+    @BeforeEach
+    void setupPage() {
+        homePage = new HomePage(driver);
+        softly = new SoftAssertions();
+        config = homePage.config;
+    }
 
     @Test
     void testDialogBoxes() {
-        HomePage homePage = new HomePage(driver);
-        TestPropertiesConfig config = homePage.config;
         DialogBoxesPage dialogBoxesPage = homePage.openDialogBoxesPage();
 
         String currentUrl = dialogBoxesPage.getCurrentUrl();
@@ -29,10 +37,7 @@ public class DialogBoxesTests extends BaseTest {
 
     @Test
     void testAlert() {
-        HomePage homePage = new HomePage(driver);
-        TestPropertiesConfig config = homePage.config;
         DialogBoxesPage dialogBoxesPage = homePage.openDialogBoxesPage();
-
         dialogBoxesPage.verifyAlert();
     }
 }

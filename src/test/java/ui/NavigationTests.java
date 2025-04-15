@@ -3,6 +3,7 @@ package ui;
 import configs.TestPropertiesConfig;
 import io.qameta.allure.Feature;
 import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import pages.HomePage;
@@ -13,13 +14,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Feature("POM")
 public class NavigationTests extends BaseTest {
-    SoftAssertions softly = new SoftAssertions();
+    HomePage homePage;
+    SoftAssertions softly;
+    TestPropertiesConfig config;
+
+    @BeforeEach
+    void setupPage() {
+        homePage = new HomePage(driver);
+        softly = new SoftAssertions();
+        config = homePage.config;
+    }
 
     @Test
     void testOpenNavigationPage() {
-        HomePage homePage = new HomePage(driver);
-        TestPropertiesConfig config = homePage.config;
-
         NavigationPage navigationPage = homePage.openNavigationPage();
         String currentUrl = navigationPage.getCurrentUrl();
 
@@ -34,7 +41,6 @@ public class NavigationTests extends BaseTest {
 
     @Test
     void testNavigate() {
-        HomePage homePage = new HomePage(driver);
         NavigationPage navigationPage = homePage.openNavigationPage();
 
         navigationPage.navigateToDB();
