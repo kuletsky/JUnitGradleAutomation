@@ -14,4 +14,14 @@ public class NavigationPage extends BasePage {
     public String getNavigationUrl() {
         return NAVIGATION_URL;
     }
+
+    @Step("Navigate to Dialog Box")
+    public void navigateToDB() {
+        driver.navigate().to("https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html");
+    }
+
+    @Step("Navigate back")
+    public void navigateBack() {
+        driver.navigate().back();
+    }
 }
