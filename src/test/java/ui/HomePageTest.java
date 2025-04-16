@@ -22,7 +22,6 @@ class HomePageTest extends BaseTest {
 
     @Test
     void testOpenHomePage() {
-
         WebElement actualTitle = homePage.getTitle();
 
         assertEquals("Hands-On Selenium WebDriver with Java", actualTitle.getText());
@@ -31,8 +30,6 @@ class HomePageTest extends BaseTest {
     @Test
     @DisplayName("Open all links")
     void testOpenAllLinks() {
-//        homePage = new HomePage(driver);
-
         assertEquals(6, homePage.getListOfChapters().size());
         assertEquals(27, homePage.getListOfLinks().size());
     }
@@ -40,8 +37,6 @@ class HomePageTest extends BaseTest {
     @Test
     @DisplayName("Click through all links on the homepage")
     void testClickAllLinks() {
-//        homePage = new HomePage(driver);
-
         homePage.clickAllLinks(); // separate test for action
     }
 //    @Test
