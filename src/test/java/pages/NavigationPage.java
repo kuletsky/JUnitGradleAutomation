@@ -1,10 +1,17 @@
 package pages;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class NavigationPage extends BasePage {
     private static final String NAVIGATION_URL = "navigation1.html";
+
+    @FindBy(linkText = "Next")
+    private WebElement nextButton;
+    //private WebElement nextButton = driver.findElement(By.linkText("Next"));
 
     public NavigationPage(WebDriver driver) {
         super(driver);
@@ -23,5 +30,10 @@ public class NavigationPage extends BasePage {
     @Step("Navigate back")
     public void navigateBack() {
         driver.navigate().back();
+    }
+
+    @Step("Click next button")
+    public void clickNextButton() {
+        nextButton.click();
     }
 }

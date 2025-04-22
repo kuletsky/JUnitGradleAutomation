@@ -5,7 +5,6 @@ import io.qameta.allure.Feature;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
 import pages.HomePage;
 import pages.NavigationPage;
 
@@ -30,10 +29,13 @@ public class NavigationTests extends BaseTest {
         NavigationPage navigationPage = homePage.openNavigationPage();
         String currentUrl = navigationPage.getCurrentUrl();
 
-        WebElement navigationTitle = navigationPage.getTitle();
+        String navigationTitle = navigationPage.getTitle();
         String navigationUrl = navigationPage.getNavigationUrl();
 
-        softly.assertThat(navigationTitle.getText()).isEqualTo("Navigation example");
+        navigationPage.clickNextButton();
+        navigationPage.clickNextButton();
+
+        softly.assertThat(navigationTitle).isEqualTo("Navigation example");
         softly.assertThat(currentUrl).isEqualTo(config.getBaseUrl() + navigationUrl);
 
         softly.assertAll();

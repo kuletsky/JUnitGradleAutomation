@@ -22,9 +22,9 @@ class HomePageTest extends BaseTest {
 
     @Test
     void testOpenHomePage() {
-        WebElement actualTitle = homePage.getTitle();
+        String actualTitle = homePage.getTitle();
 
-        assertEquals("Hands-On Selenium WebDriver with Java", actualTitle.getText());
+        assertEquals("Hands-On Selenium WebDriver with Java", actualTitle);
     }
 
     @Test

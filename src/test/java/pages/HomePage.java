@@ -6,12 +6,23 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ui.DialogBoxesTests;
 
+import java.util.Collections;
 import java.util.List;
 
 public class HomePage extends BasePage {
     public TestPropertiesConfig config = ConfigFactory.create(TestPropertiesConfig.class, System.getProperties());
+
+    @FindBy(className = "display-4")
+    private WebElement webTitle;
+
+    @FindBy(css = ".card h5")
+    private List<WebElement> chapters;
+
+    @FindBy(css = ".card a")
+    private List<WebElement> webLinks;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -19,9 +30,9 @@ public class HomePage extends BasePage {
     }
 
     //locators
-    By webTitle = By.className("display-4");
-    By chapters = By.cssSelector(".card h5");
-    By webLinks = By.cssSelector(".card a");
+//    By webTitle = By.className("display-4");
+//    By chapters = By.cssSelector(".card h5");
+//    By webLinks = By.cssSelector(".card a");
 
     //actions
     @Step("Open Homepage")
@@ -30,8 +41,8 @@ public class HomePage extends BasePage {
     }
 
     @Step("Get title")
-    public WebElement getTitle() {
-        return driver.findElement(webTitle);
+    public String getTitle() {
+        return webTitle.getText();
     }
 
     @Step("Open Web form page")
@@ -60,12 +71,12 @@ public class HomePage extends BasePage {
 
     @Step("Get a List of chapters on the Main Page")
     public List<WebElement> getListOfChapters() {
-        return driver.findElements(chapters);
+        return chapters;
     }
 
     @Step("Get a List of links on the Main Page")
     public List<WebElement> getListOfLinks() {
-        return driver.findElements(webLinks);
+        return webLinks;
     }
 
     @Step("Click on all links on the Main page")

@@ -17,6 +17,12 @@ dependencies {
     testImplementation 'org.aeonbits.owner:owner:1.0.12'
     testImplementation 'org.assertj:assertj-core:3.27.3'
     testImplementation 'io.qameta.allure:allure-junit5:2.29.1'
+
+    compileOnly("org.projectlombok:lombok:1.18.38")
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
+
+    testCompileOnly("org.projectlombok:lombok:1.18.38")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
 }
 
 test {

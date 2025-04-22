@@ -4,12 +4,16 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class LoadingImagesPage extends BasePage {
+
+    @FindBy(id = "landscape")
+    private WebElement landscapeImage;
 
     public LoadingImagesPage(WebDriver driver) {
         super(driver);
@@ -18,10 +22,8 @@ public class LoadingImagesPage extends BasePage {
     @Step("Wait the Landscape image")
     public String getLandscape() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        String landscape;
-        landscape = wait.until(
-                ExpectedConditions.presenceOfElementLocated(By.id("landscape")))
-                .getDomAttribute("src");
-        return landscape;
+
+        wait.until(ExpectedConditions.visibilityOf(landscapeImage));
+        return landscapeImage.getDomAttribute("src");
     }
 }

@@ -4,10 +4,8 @@ import configs.TestPropertiesConfig;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
 import pages.DialogBoxesPage;
 import pages.HomePage;
-import pages.WebFormPage;
 
 public class DialogBoxesTests extends BaseTest {
     HomePage homePage;
@@ -26,10 +24,11 @@ public class DialogBoxesTests extends BaseTest {
         DialogBoxesPage dialogBoxesPage = homePage.openDialogBoxesPage();
 
         String currentUrl = dialogBoxesPage.getCurrentUrl();
-        WebElement title = dialogBoxesPage.getTitle();
+        String title = dialogBoxesPage.getTitle();
         String dialogBoxUrl = dialogBoxesPage.getDialogBoxUrl();
 
-        softly.assertThat(title.getText()).isEqualTo("Dialog boxes");
+
+        softly.assertThat(title).isEqualTo("Dialog boxes");
         softly.assertThat(currentUrl).isEqualTo(config.getBaseUrl() + dialogBoxUrl);
 
         softly.assertAll();
