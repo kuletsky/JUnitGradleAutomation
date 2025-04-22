@@ -1,15 +1,18 @@
 package pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class WebFormPage extends BasePage {
     private static final String WEB_FORM_URL = "web-form.html";
 
-    //Locators
-    WebElement submitButton = driver.findElement(By.xpath("//button[@type = 'submit']"));
+    @FindBy(xpath = "//button[@type = 'submit']")
+    private WebElement submitButton;
+
+    private String title;
+    private String currentUrl;
 
     public WebFormPage(WebDriver driver) {
         super(driver);

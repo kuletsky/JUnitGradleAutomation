@@ -30,10 +30,10 @@ public class WebFormTests extends BaseTest {
         WebFormPage webFormPage = homePage.openWebFormPage();
 
         String currentUrl = webFormPage.getCurrentUrl();
-        WebElement title = webFormPage.getTitle();
+        String title = webFormPage.getTitle();
         String webFormUrl = webFormPage.getFormUrl();
 
-        softly.assertThat(title.getText()).isEqualTo("Web form");
+        softly.assertThat(title).isEqualTo("Web form");
         softly.assertThat(currentUrl).isEqualTo(config.getBaseUrl() + webFormUrl);
 
         softly.assertAll();
