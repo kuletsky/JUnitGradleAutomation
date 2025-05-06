@@ -54,12 +54,14 @@ public class HomePage extends BasePage {
     @Step("Open Navigation page")
     public NavigationPage openNavigationPage() {
         driver.findElement(By.linkText("Navigation")).click();
+
         return new NavigationPage(driver);
     }
 
     @Step("Open Navigation page")
     public LoadingImagesPage openLoadingImagesPage() {
         driver.findElement(By.linkText("Loading images")).click();
+
         return new LoadingImagesPage(driver);
     }
 

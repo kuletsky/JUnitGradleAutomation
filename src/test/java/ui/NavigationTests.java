@@ -50,4 +50,12 @@ public class NavigationTests extends BaseTest {
 
         assertEquals("https://bonigarcia.dev/selenium-webdriver-java/navigation1.html", navigationPage.getCurrentUrl());
     }
+
+    @Test
+    void testNextButton() {
+        NavigationPage navigationPage = new HomePage(driver)
+                .openNavigationPage()
+                .clickNextButton()
+                .clickNextButton();
+    }
 }
