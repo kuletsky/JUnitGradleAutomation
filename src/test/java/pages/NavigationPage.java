@@ -9,9 +9,8 @@ import org.openqa.selenium.support.FindBy;
 public class NavigationPage extends BasePage {
     private static final String NAVIGATION_URL = "navigation1.html";
 
-//    @FindBy(linkText = "Next")
-//    private WebElement nextButton;
-    private WebElement nextButton = driver.findElement(By.linkText("Next"));
+    @FindBy(linkText = "Next")
+    private WebElement nextButton;
 
     public NavigationPage(WebDriver driver) {
         super(driver);
