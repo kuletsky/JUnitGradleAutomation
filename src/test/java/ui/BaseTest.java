@@ -1,9 +1,9 @@
 package ui;
 
+import io.qameta.allure.Allure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -30,7 +30,8 @@ public class BaseTest {
 
     private void initDriver() {
         String remoteUrl = System.getenv("SELENIUM_REMOTE_URL");
-        System.out.println("SELENIUM_REMOTE_URL = " + remoteUrl);
+        Allure.addAttachment("remote", remoteUrl);
+
         if (remoteUrl != null && !remoteUrl.isEmpty()) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless");
