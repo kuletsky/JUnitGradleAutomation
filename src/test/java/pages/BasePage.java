@@ -16,8 +16,6 @@ public class BasePage {
     @FindBy(className = "display-6")
     private WebElement title;
 
-//    By title = By.className("display-6");
-
     public BasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));

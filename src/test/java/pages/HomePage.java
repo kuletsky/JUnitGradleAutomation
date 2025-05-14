@@ -7,9 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ui.DialogBoxesTests;
 
-import java.util.Collections;
 import java.util.List;
 
 public class HomePage extends BasePage {
@@ -28,11 +26,6 @@ public class HomePage extends BasePage {
         super(driver);
         open();
     }
-
-    //locators
-//    By webTitle = By.className("display-4");
-//    By chapters = By.cssSelector(".card h5");
-//    By webLinks = By.cssSelector(".card a");
 
     //actions
     @Step("Open Homepage")
