@@ -4,9 +4,8 @@ import configs.TestPropertiesConfig;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
-import pages.HomePage;
-import pages.WebFormPage;
+import ui.pages.HomePage;
+import ui.pages.WebFormPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.assertj.core.api.SoftAssertions;

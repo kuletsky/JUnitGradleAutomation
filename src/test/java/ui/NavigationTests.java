@@ -5,8 +5,8 @@ import io.qameta.allure.Feature;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.HomePage;
-import pages.NavigationPage;
+import ui.pages.HomePage;
+import ui.pages.NavigationPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -2,7 +2,7 @@ package ui;
 
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.BeforeEach;
-import pages.HomePage;
+import ui.pages.HomePage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

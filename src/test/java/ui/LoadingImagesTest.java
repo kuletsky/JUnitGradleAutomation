@@ -4,8 +4,8 @@ import configs.TestPropertiesConfig;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.HomePage;
-import pages.LoadingImagesPage;
+import ui.pages.HomePage;
+import ui.pages.LoadingImagesPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

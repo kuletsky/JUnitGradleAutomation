@@ -1,4 +1,4 @@
-package pages;
+package ui.pages;
 
 import configs.TestPropertiesConfig;
 import io.qameta.allure.Step;

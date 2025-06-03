@@ -4,8 +4,8 @@ import configs.TestPropertiesConfig;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.DialogBoxesPage;
-import pages.HomePage;
+import ui.pages.DialogBoxesPage;
+import ui.pages.HomePage;
 
 public class DialogBoxesTests extends BaseTest {
     HomePage homePage;
