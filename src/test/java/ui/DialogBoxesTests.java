@@ -27,7 +27,6 @@ public class DialogBoxesTests extends BaseTest {
         String title = dialogBoxesPage.getTitle();
         String dialogBoxUrl = dialogBoxesPage.getDialogBoxUrl();
 
-
         softly.assertThat(title).isEqualTo("Dialog boxes");
         softly.assertThat(currentUrl).isEqualTo(config.getBaseUrl() + dialogBoxUrl);
 
