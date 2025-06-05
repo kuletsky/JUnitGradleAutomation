@@ -4,7 +4,6 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static com.google.common.base.Predicates.equalTo;
 import static io.restassured.RestAssured.given;
 
 public class ApiTests {
