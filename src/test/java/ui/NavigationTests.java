@@ -53,7 +53,7 @@ public class NavigationTests extends BaseTest {
 
     @Test
     void testNextButton() {
-        NavigationPage navigationPage = new HomePage(driver)
+        new HomePage(driver)
                 .openNavigationPage()
                 .clickNextButton()
                 .clickNextButton();

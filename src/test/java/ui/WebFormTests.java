@@ -40,7 +40,6 @@ public class WebFormTests extends BaseTest {
     @Test
     void testSubmitForm() {
         WebFormPage webFormPage = homePage.openWebFormPage();
-
         webFormPage.submitForm();
     }
 }
