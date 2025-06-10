@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.pages.HomePage;
 import ui.pages.WebFormPage;
-
 import org.assertj.core.api.SoftAssertions;
 
 
